@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>체크박스</title>
+</head>
+<body>
+  <form action="#">
+    <div>
+      <label>
+        <span>전체 동의</span>
+        <input type="checkbox" name="all" class="all">
+      </label>
+    </div>
+    <div>
+      <label>
+        <span>강의장 청소 동의</span>
+        <input type="checkbox" name="term1" class="term">
+      </label>
+    </div>
+    <div>
+      <label>
+        <span>이규혁 잔류 동의</span>
+        <input type="checkbox" name="term2" class="term">
+      </label>
+    </div>
+    <div>
+      <label>
+        <span>강대훈 잔류 동의</span>
+        <input type="checkbox" name="term3" class="term">
+      </label>
+    </div>
+    <div>
+      <label>
+        <span>김세종 잔류 동의</span>
+        <input type="checkbox" name="term4" class="term">
+      </label>
+    </div>
+  </form>
+</body>
+<script>
+  NodeList.prototype.map = Array.prototype.map
+  
+  const all = document.querySelector("input.all")
+  const terms = document.querySelectorAll("input.term")
+
+  all.addEventListener("click", (e) => {
+    terms.forEach((term) => {
+      term.checked = all.checked
+    })
+  })
+
+  terms.forEach((term) => {
+    term.addEventListener("click", (e) => {
+      all.checked = terms.map((term) => term.checked).filter((check) => check).length === 4;
+    })
+  })
+
+</script>
+</html>

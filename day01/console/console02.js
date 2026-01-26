@@ -1,0 +1,1 @@
+console.log("노민균")

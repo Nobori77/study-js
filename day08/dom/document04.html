@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 선택자를 이용한 선택</title>
+</head>
+<body>
+  <h1>CSS 선택자를 이용한 선택</h1>
+  <p>첫 번째 단락이에요!</p>
+  <ul>
+    <li class="list odd">핸드폰</li>
+    <li class="list even">해커스</li>
+    <li class="list odd">삼성</li>
+    <li class="list even">강아지</li>
+    <li class="list odd">제로콜라</li>
+    <li class="list even">코카콜라</li>
+    <li class="list odd">고양이</li>
+  </ul>
+</body>
+<script>
+  
+  const list = document.querySelectorAll(".list")
+  NodeList.prototype.filter = Array.prototype.filter
+  // 태그 내용 중 '콜라"가 들어간 list만 글자 색상을 pink로 변경하기
+  list.filter((li) => li.innerText.includes("콜라")).forEach((li) => {
+    li.style.color = "pink"
+  })
+</script>
+</html>
